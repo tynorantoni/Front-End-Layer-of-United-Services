@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tailwind',
-    'theme'
+    'BikePortal'
 ]
 
 MIDDLEWARE = [
@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = 'BikePortal'
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
