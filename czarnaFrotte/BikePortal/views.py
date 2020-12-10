@@ -3,7 +3,9 @@ from django.shortcuts import render
 
 def index(request):
     alerts={}
-    context={'alerts':alerts}
+    health={'bss':'alive','kss':'dead'}
+    context={'alerts':alerts,
+             'health':health}
     return render(request,'index.html',context)
 
 def cycling_stats(request):
