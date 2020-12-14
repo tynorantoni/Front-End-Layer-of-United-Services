@@ -2,11 +2,11 @@ from django.shortcuts import render, redirect
 
 from BikePortal.forms import TicketForm
 from BikePortal.models import Ticket
-from weatherhandler import WeatherHandler
+from .weatherhandler import WeatherHandler
 
 
 def index(request):
-    pogoda = WeatherHandler().get_weather_data()
+    # pogoda = WeatherHandler().get_weather_data()
     ticks = Ticket.objects.all().order_by('-priority').filter(done=False)
     alerts={}
     health={'bss':'alive','kss':'dead'}
