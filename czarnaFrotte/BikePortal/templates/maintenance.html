@@ -18,8 +18,16 @@
                 </div>
                 <div class="flex-1 text-right md:text-center">
                     <h5 class="font-bold uppercase text-gray-600">Total Revenue</h5>
-                    <h3 class="font-bold text-3xl">$3249 <span class="text-green-500"><i
-                            class="fas fa-caret-up"></i></span></h3>
+                    <h3 class="font-bold text-xl">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            {{form.title}}
+                            {{form.desc}}
+                            {{form.priority}}
+                            {{form.bike_name}}
+                            <input class="btn btn-info" type="submit" name="Add"></form>
+                    </h3>
+
                 </div>
             </div>
         </div>
@@ -27,6 +35,8 @@
     </div>
     <div class="w-full p-6">
         <!--Metric Card-->
+        {% if ticks %}
+        {% for tick in ticks %}
         <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
             <div class="flex flex-row items-center">
                 <div class="flex-shrink pr-4">
@@ -34,11 +44,33 @@
                 </div>
                 <div class="flex-1 text-right md:text-center">
                     <h5 class="font-bold uppercase text-gray-600">Total Users</h5>
-                    <h3 class="font-bold text-3xl">249 <span class="text-pink-500"><i
-                            class="fas fa-exchange-alt"></i></span></h3>
+                    <h3 class="font-bold text-3xl">
+                        <h4>
+
+                            {{tick.title}}
+                            {{tick.desc}}</h4>
+
+                    </h3>
                 </div>
             </div>
         </div>
+        {% endfor %}
+        {% else %}
+        <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
+            <div class="flex flex-row items-center">
+                <div class="flex-shrink pr-4">
+                    <div class="rounded-full p-5 bg-pink-600"><i class="fas fa-users fa-2x fa-inverse"></i></div>
+                </div>
+                <div class="flex-1 text-right md:text-center">
+                    <h5 class="font-bold uppercase text-gray-600">Nothing</h5>
+                    <h3 class="font-bold text-3xl">
+
+
+                    </h3>
+                </div>
+            </div>
+        </div>
+        {% endif %}
         <!--/Metric Card-->
     </div>
 
