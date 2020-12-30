@@ -16,3 +16,13 @@ class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
         fields = 'title','desc','bike_name','priority'
+
+class ChartSliderForm(forms.Form):
+
+    city = forms.CheckboxSelectMultiple(choices=[('krk','Krakow'),('br','Brussels')])
+    date_range_start = forms.DateField(widget=DateInput())
+    date_range_end = forms.DateField(widget=DateInput())
+
+    class Meta:
+
+        fields = 'city','date_range_start','date_range_end'
